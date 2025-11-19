@@ -64,37 +64,37 @@ const Calculator: React.FC = () => {
 
   return (
     <MainLayout title="Tính điểm học phần">
-      <div className="space-y-6">
+      <div className="space-y-4 md:space-y-6">
         <div className="flex items-center gap-4">
           <Button
             variant="outline"
             onClick={() => navigate('/grade-calc')}
-            className="flex items-center gap-2 px-4 py-2"
+            className="flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2"
           >
-            <ArrowLeft size={20} />
+            <ArrowLeft size={16} className="md:w-5 md:h-5" />
             Quay lại
           </Button>
         </div>
 
         {/* GPA Display */}
-        <div className="card-professional p-8 text-center">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl mb-4">
-            <CalculatorIcon size={28} className="text-white" />
+        <div className="card-professional p-4 md:p-8 text-center">
+          <div className="inline-flex items-center justify-center w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl mb-3 md:mb-4">
+            <CalculatorIcon size={20} className="md:w-7 md:h-7 text-white" />
           </div>
-          <h2 className="text-2xl font-bold text-neutral-gray-900 mb-2">Điểm trung bình tích lũy</h2>
-          <div className="text-6xl font-bold text-gradient-professional mb-3">{gpa.toFixed(2)}</div>
-          <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-emerald-500 to-teal-600 text-white rounded-full text-sm font-semibold">
+          <h2 className="text-xl md:text-2xl font-bold text-black mb-1 md:mb-2">Điểm trung bình tích lũy</h2>
+          <div className="text-4xl md:text-6xl font-bold text-gradient-professional mb-2 md:mb-3">{gpa.toFixed(2)}</div>
+          <div className="inline-flex items-center px-3 py-1.5 md:px-4 md:py-2 bg-gradient-to-r from-emerald-500 to-teal-600 text-white rounded-full text-xs md:text-sm font-semibold">
             {gpa >= 3.6 ? '🌟 Xuất sắc' : gpa >= 3.0 ? '👍 Giỏi' : gpa >= 2.0 ? '👌 Khá' : '📚 Cần cố gắng'}
           </div>
         </div>
 
         {/* Add Grade Form */}
-        <div className="card-professional p-6">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center">
-              <Plus size={16} className="text-white" />
+        <div className="card-professional p-4 md:p-6">
+          <div className="flex items-center gap-3 mb-4 md:mb-6">
+            <div className="w-6 h-6 md:w-8 md:h-8 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center">
+              <Plus size={12} className="md:w-4 md:h-4 text-white" />
             </div>
-            <h3 className="text-xl font-bold text-gradient-professional">Thêm học phần</h3>
+            <h3 className="text-lg md:text-xl font-bold text-gradient-professional">Thêm học phần</h3>
           </div>
           <div className="space-y-4">
             <Input
@@ -135,32 +135,32 @@ const Calculator: React.FC = () => {
         </div>
 
         {/* Grades List */}
-        <div className="space-y-4">
+        <div className="space-y-3 md:space-y-4">
           <div className="flex items-center justify-between">
-            <h3 className="text-xl font-bold text-gradient-professional">Danh sách học phần ({grades.length})</h3>
+            <h3 className="text-lg md:text-xl font-bold text-gradient-professional">Danh sách học phần ({grades.length})</h3>
           </div>
 
           {grades.length === 0 ? (
-            <div className="card-professional p-12 text-center">
-              <div className="text-6xl mb-4">📝</div>
-              <h4 className="text-xl font-bold text-neutral-gray-900 mb-2">Chưa có học phần nào</h4>
-              <p className="text-neutral-gray-600">Thêm học phần để bắt đầu tính điểm</p>
+            <div className="card-professional p-8 md:p-12 text-center">
+              <div className="text-4xl md:text-6xl mb-3 md:mb-4">📝</div>
+              <h4 className="text-lg md:text-xl font-bold text-black mb-1 md:mb-2">Chưa có học phần nào</h4>
+              <p className="text-gray-700 text-sm md:text-base">Thêm học phần để bắt đầu tính điểm</p>
             </div>
           ) : (
-            <div className="space-y-3">
+            <div className="space-y-2 md:space-y-3">
               {grades.map((grade, index) => (
-                <div key={index} className="card-professional p-4">
+                <div key={index} className="card-professional p-3 md:p-4">
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-4 flex-1">
-                      <div className="text-2xl">{getGradeEmoji(grade.score)}</div>
+                    <div className="flex items-center gap-3 md:gap-4 flex-1">
+                      <div className="text-xl md:text-2xl">{getGradeEmoji(grade.score)}</div>
                       <div className="flex-1">
-                        <h4 className="font-bold text-lg text-neutral-gray-900">{grade.subject}</h4>
-                        <div className="flex items-center gap-4 mt-1">
-                          <span className={`font-bold text-lg ${getGradeColor(grade.score)}`}>
+                        <h4 className="font-bold text-base md:text-lg text-black">{grade.subject}</h4>
+                        <div className="flex items-center gap-3 md:gap-4 mt-1">
+                          <span className={`font-bold text-base md:text-lg ${getGradeColor(grade.score)}`}>
                             {grade.score}
                           </span>
-                          <span className="text-neutral-gray-400">•</span>
-                          <span className="text-neutral-gray-600">{grade.weight} tín chỉ</span>
+                          <span className="text-gray-500">•</span>
+                          <span className="text-gray-700 text-sm md:text-base">{grade.weight} tín chỉ</span>
                         </div>
                       </div>
                     </div>
@@ -168,9 +168,9 @@ const Calculator: React.FC = () => {
                       variant="danger"
                       size="sm"
                       onClick={() => removeGrade(index)}
-                      className="ml-4 p-2"
+                      className="ml-3 md:ml-4 p-1.5 md:p-2"
                     >
-                      <Trash2 size={16} />
+                      <Trash2 size={14} className="md:w-4 md:h-4" />
                     </Button>
                   </div>
                 </div>
@@ -181,20 +181,20 @@ const Calculator: React.FC = () => {
 
         {/* Summary */}
         {grades.length > 0 && (
-          <div className="card-professional p-6">
-            <h4 className="text-xl font-bold text-gradient-professional mb-6">Thống kê chi tiết</h4>
-            <div className="grid grid-cols-3 gap-4 text-center">
+          <div className="card-professional p-4 md:p-6">
+            <h4 className="text-lg md:text-xl font-bold text-gradient-professional mb-4 md:mb-6">Thống kê chi tiết</h4>
+            <div className="grid grid-cols-3 gap-2 md:gap-4 text-center">
               <div className="stats-card-professional">
-                <div className="text-3xl font-bold text-blue-600 mb-2">{grades.length}</div>
-                <div className="text-sm font-medium text-neutral-gray-600">Học phần</div>
+                <div className="text-2xl md:text-3xl font-bold text-blue-600 mb-1 md:mb-2">{grades.length}</div>
+                <div className="text-xs md:text-sm font-medium text-gray-700">Học phần</div>
               </div>
               <div className="stats-card-professional">
-                <div className="text-3xl font-bold text-purple-600 mb-2">{grades.reduce((sum, g) => sum + g.weight, 0)}</div>
-                <div className="text-sm font-medium text-neutral-gray-600">Tổng tín chỉ</div>
+                <div className="text-2xl md:text-3xl font-bold text-purple-600 mb-1 md:mb-2">{grades.reduce((sum, g) => sum + g.weight, 0)}</div>
+                <div className="text-xs md:text-sm font-medium text-gray-700">Tổng tín chỉ</div>
               </div>
               <div className="stats-card-professional">
-                <div className="text-3xl font-bold text-emerald-600 mb-2">{(grades.reduce((sum, g) => sum + g.score, 0) / grades.length).toFixed(1)}</div>
-                <div className="text-sm font-medium text-neutral-gray-600">Điểm trung bình</div>
+                <div className="text-2xl md:text-3xl font-bold text-emerald-600 mb-1 md:mb-2">{(grades.reduce((sum, g) => sum + g.score, 0) / grades.length).toFixed(1)}</div>
+                <div className="text-xs md:text-sm font-medium text-gray-700">Điểm trung bình</div>
               </div>
             </div>
           </div>

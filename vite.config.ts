@@ -13,8 +13,8 @@ export default defineConfig({
       },
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg'],
       manifest: {
-        name: 'UED MIS - Ứng dụng Quản lý Học tập',
-        short_name: 'UED MIS',
+        name: 'Ued-Mis - Ứng dụng Quản lý Học tập',
+        short_name: 'Ued-Mis',
         description: 'Ứng dụng Quản lý Học tập của Trường Đại học Sư phạm Đà Nẵng',
         theme_color: '#1e40af',
         background_color: '#ffffff',

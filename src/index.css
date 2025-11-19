@@ -156,6 +156,7 @@ body {
   }
 
   .text-gradient-professional {
+    color: var(--neutral-gray-900);
     background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
